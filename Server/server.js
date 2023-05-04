@@ -25,4 +25,4 @@ mongoose.connect(DB_URL,{
     console.log("DB Connected Successfully");
 }).catch((err)=>{
     console.log("DB connection error "+err)
-})
+});

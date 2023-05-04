@@ -1,7 +1,14 @@
 /**Import and require express , Mongoose to app*/
 const express =  require("express");
+
 //To communicate MongoDB through mongoose
 const mongoose =  require("mongoose");
+
+/** Import body-parser for json convert js object */
+const bodyParser =require("body-parser")
+
+
+
 
 /**Invoked express to app*/
 const APP = express();

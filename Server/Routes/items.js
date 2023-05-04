@@ -17,12 +17,28 @@ router.post('/item/save', (req, res) => {
             });
         })
         .catch((err) => {
-        return res.status(400).json({
-            error: err
+            return res.status(400).json({
+                error: err
+            });
         });
-    });
 });
 
 /** GET ITEMS  */
+
+router.get('/items', (req, res) => {
+    Items.find()
+        .then(items => {
+            return res.status(200).json({
+                success: true,
+                existingItems: items
+            });
+        })
+        .catch(err => {
+            return re.status(400).json({
+                error: err,
+            });
+        });
+});
+
 
 module.exports = router;

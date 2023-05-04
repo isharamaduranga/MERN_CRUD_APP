@@ -2,16 +2,15 @@
 const express = require("express");
 
 /** Import User models which have created */
-const Posts = require("../Data_models/posts");
+const Items = require("../Data_models/items");
 
 /** Import express Router for send request */
 const router = express.Router();
 
-/** SAVE ITEM Posts */
-router.post('/post/save', (req, res) => {
-    let newPost = new Posts(req.body);
-
-    newPost.save()
+/** SAVE ITEM  */
+router.post('/item/save', (req, res) => {
+    let newItem = new Items(req.body);
+    newItem.save()
         .then(() => {
             return res.status(200).json({
                 success: "Item Saved successfully ..."
@@ -23,5 +22,7 @@ router.post('/post/save', (req, res) => {
         });
     });
 });
+
+/** GET ITEMS  */
 
 module.exports = router;

@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 /** Create a Schema for send data model to Mongodb database */
-const postSchema = new mongoose.Schema({
+const itemSchema = new mongoose.Schema({
 
     itemCode:{
         type:String,
@@ -27,4 +27,4 @@ const postSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Posts',postSchema);
+module.exports = mongoose.model('Items',itemSchema);

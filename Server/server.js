@@ -1,19 +1,21 @@
 /**Import and require express , Mongoose to app*/
-/** To communicate MongoDB through mongoose */
-/** Import body-parser for json convert js object */
-//Import Routes
 const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser")
-const postRoutes = require("./Routes/posts")
 
+/** To communicate MongoDB through mongoose */
+const mongoose = require("mongoose");
+
+/** Import body-parser for json convert js object */
+const bodyParser = require("body-parser")
+
+//Import Routes
+const itemRoutes = require("./Routes/items")
 
 /**Invoked express to app*/
 const app = express();
 
 /** Defined App Middlewares */
 app.use(bodyParser.json());
-app.use(postRoutes);
+app.use(itemRoutes);
 
 /** Declare Unique PORT */
 const PORT = 8000;
@@ -22,14 +24,13 @@ const DB_URL = 'mongodb+srv://ishara:ishara1234@item-crud-app.rope5xb.mongodb.ne
 
 
 /** Create database Connection Using MongoDB */
-mongoose.connect(DB_URL).then(() => {
+mongoose.connect(DB_URL)
+    .then(() => {
         console.log("DB Connected Successfully");
-
-    }).catch((err) => {
-
+    })
+    .catch((err) => {
     console.log("DB connection error " + err)
-
-});
+    });
 
 
 /** The app is listened using Port */

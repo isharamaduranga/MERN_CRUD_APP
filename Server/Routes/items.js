@@ -39,7 +39,7 @@ router.get('/items', (req, res) => {
 });
 
 
-/**  UPDATE ITEMS */
+/**  UPDATE ITEM */
 router.put('/item/update/:id', (req, res) => {
     Items.findByIdAndUpdate(req.params.id,
 
@@ -58,5 +58,20 @@ router.put('/item/update/:id', (req, res) => {
             });
         });
 });
+
+/** DELETE ITEM */
+router.delete('/item/delete/:id', (req, res) => {
+    Items.findByIdAndRemove(req.params.id)
+        .then(deletedItem => {
+            return res.status(200).json({
+                success: "Successfully Deleted Item ...", deletedItem
+            });
+        })
+        .catch(err => {
+            return res.status(400).json({
+                error: err,
+            });
+        });
+})
 
 module.exports = router;

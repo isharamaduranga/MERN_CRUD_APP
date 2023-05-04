@@ -7,11 +7,11 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <NavBar/>
         <Routes>
-          <NavBar/>
           <Route path="/" element={<Home/>}/>
-          <Route path="/add" element={}/>
-          <Route path="/edit/:id" element={}/>
+          <Route path="/add" />
+          <Route path="/edit/:id" />
         </Routes>
 
       </BrowserRouter>

@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser")
 
 /** Import CORS for fix Cross policy issues  */
-const cors = require("cors")
+const cors = require('cors')
 
 //Import Routes
 const itemRoutes = require("./Routes/items")
@@ -19,7 +19,7 @@ const app = express();
 /** Defined App Middlewares */
 app.use(bodyParser.json());
 app.use(itemRoutes);
-app.use(cors());
+
 
 /** Declare Unique PORT */
 const PORT = 8000;

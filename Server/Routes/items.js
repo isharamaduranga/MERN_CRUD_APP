@@ -28,11 +28,12 @@ router.get('/items', (req, res) => {
     Items.find()
         .then(items => {
             return res.status(200).json({
-                success: true, existingItems: items
+                success: true ,
+                existingItems: items ,
             });
         })
         .catch(err => {
-            return re.status(400).json({
+            return res.status(400).json({
                 error: err,
             });
         });

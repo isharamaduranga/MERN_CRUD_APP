@@ -8,18 +8,20 @@ const Posts = require("../Data_models/posts");
 const router = express.Router();
 
 /** SAVE ITEM Posts */
-router.post('/post/save'), (req, res) => {
+router.post('/post/save', (req, res) => {
     let newPost = new Posts(req.body);
 
-    newPost.save().then(() => {
-        return res.status(200).json({
-            success: "Item Saved successfully ..."
+    newPost.save()
+        .then(() => {
+            return res.status(200).json({
+                success: "Item Saved successfully ..."
+            });
         })
-    }).catch((err) => {
+        .catch((err) => {
         return res.status(400).json({
             error: err
         });
     });
-}
+});
 
 module.exports = router;

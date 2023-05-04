@@ -24,13 +24,11 @@ router.post('/item/save', (req, res) => {
 });
 
 /** GET ITEMS  */
-
 router.get('/items', (req, res) => {
     Items.find()
         .then(items => {
             return res.status(200).json({
-                success: true,
-                existingItems: items
+                success: true, existingItems: items
             });
         })
         .catch(err => {
@@ -40,5 +38,25 @@ router.get('/items', (req, res) => {
         });
 });
 
+
+/**  UPDATE ITEMS */
+router.put('/item/update/:id', (req, res) => {
+    Items.findByIdAndUpdate(req.params.id,
+
+        //update full body feature - (mongoose feature $set:req.body)
+        {
+            $set: req.body
+        })
+        .then(item => {
+            return res.status(200).json({
+                success: "Update Successfully ..."
+            });
+        })
+        .catch(err => {
+            return res.status(400).json({
+                error: err,
+            });
+        });
+});
 
 module.exports = router;

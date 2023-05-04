@@ -1,17 +1,19 @@
 /**Import and require express , Mongoose to app*/
-const express =  require("express");
-
-//To communicate MongoDB through mongoose
-const mongoose =  require("mongoose");
-
+/** To communicate MongoDB through mongoose */
 /** Import body-parser for json convert js object */
+//Import Routes
+const express =  require("express");
+const mongoose =  require("mongoose");
 const bodyParser =require("body-parser")
-
-
+const postRoutes = require("./Routes/posts")
 
 
 /**Invoked express to app*/
-const APP = express();
+const app = express();
+
+/** Defined App Middlewares */
+app.use(bodyParser.json());
+app.use(postRoutes)
 
 /** Declare Unique PORT */
 const PORT = 8000;
@@ -20,7 +22,7 @@ const PORT = 8000;
 const DB_URL = 'mongodb+srv://ishara:ishara1234@item-crud-app.rope5xb.mongodb.net/item-crud-App?retryWrites=true&w=majority'
 
 /** The app is listened using Port */
-APP.listen(PORT, ()=>{
+app().listen(PORT, ()=>{
     console.log(`App is Running on ${PORT}`);
 });
 

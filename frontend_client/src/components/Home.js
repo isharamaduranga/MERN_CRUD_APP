@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 function Home() {
 
@@ -7,7 +8,7 @@ function Home() {
 
     useEffect(() => {
         retrieveItems();
-    }, []);
+    }, [items]);
 
 
     const retrieveItems = () => {
@@ -21,20 +22,65 @@ function Home() {
 
 
     return (
-        <div className="container">
-            {items.map((items,index)=>(
-                <div key={index}>
-                    <p>{items.itemCode}</p>
-                    <p>{items.itemName}</p>
-                    <p>{items.description}</p>
-                    <p>{items.itemQty}</p>
-                    <p>{items.itemPrice}</p>
-
+        <div className="container shadow-lg p-5 mt-4 rounded-4">
+            <div className='row mb-2 mt-2'>
+                    <h4 className="text-success text-center">All Items Here !!!</h4>
+            </div>
+            <div className='d-flex align-items-center justify-content-center'>
+                <div className='row w-50 mt-2 mb-4'>
+                    <input
+                        className="form-control border border-2 border-info"
+                        type='search'
+                        placeholder='Search'
+                        name='searchQuery'
+                    />
                 </div>
+            </div>
 
+        <table className="table table-hover">
+            <thead style={{background:"lightgray"}}>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit-Price</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {items.map((item,index)=>(
+                <tr key={index}>
+                    <th scope="row">{index+1}</th>
+                    <td>{item.itemCode} </td>
+                    <td>{item.itemName} </td>
+                    <td>{item.description} </td>
+                    <td>{item.itemQty} </td>
+                    <td>{item.itemPrice} </td>
+                    <td>
+                        <Link to={"/edit/"} className='btn btn-primary'>
+                            <i className="far fa-edit">&nbsp; </i>E d i t `
+                        </Link>
+                        &nbsp;
+                        <a href="#"  className="btn btn-danger">
+                            <i className="far fa-trash-alt">&nbsp; </i>Delete
+                        </a>
+                    </td>
+                </tr>
             ))}
+            </tbody>
+        </table>
+            <div className="d-flex justify-content-center">
+                <button className="btn btn-success">
+                    <Link to="/add" style={{ textDecoration: "none", color: "white" }}>
+                        Create New Post
+                    </Link>
+                </button>
+            </div>
         </div>
-    );
+);
 }
 
 export default Home;

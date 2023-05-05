@@ -5,7 +5,7 @@ import Home from "./components/Home";
 
 function App() {
   return (
-    <>
+    <div>
       <BrowserRouter>
         <NavBar/>
         <Routes>
@@ -16,7 +16,7 @@ function App() {
 
       </BrowserRouter>
 
-    </>
+    </div>
   );
 }
 

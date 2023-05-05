@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import logo from "./logo_i.ico"
+import logo from "./assets/logo_i.ico"
 function NavBar(props) {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-dark">

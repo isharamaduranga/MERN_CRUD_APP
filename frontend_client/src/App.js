@@ -2,6 +2,7 @@ import React from "react";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+import AddItem from "./components/AddItem";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/add" />
+          <Route path="/add" element={<AddItem/>} />
           <Route path="/edit/:id" />
         </Routes>
 

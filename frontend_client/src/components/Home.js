@@ -12,7 +12,7 @@ function Home() {
 
 
     const retrieveItems = () => {
-        axios.get('http://localhost:8000/items').then(res => {
+        axios.get('/items').then(res => {
             if (res.data.success) {
                 setItems(res.data.existingItems);
             }
@@ -49,13 +49,13 @@ function Home() {
                     </thead>
                     <tbody>
 
-                    {items.map((item, index) => (<tr key={index}>
+                    {items.map((item, index) => (
+                        <tr key={index}>
                             <th scope="row">{index + 1}</th>
                             <td>{item.itemCode} </td>
-
                             <td>
                                 <a
-                                    href={`/item/${item._id}/${item.itemCode}/${item.itemName}/${item.description}/${item.itemQty}/${item.itemPrice}`}
+                                    href={`/item/${item.itemCode}/${item.itemName}/${item.description}/${item.itemQty}/${item.itemPrice}`}
                                     style={{textDecoration: "none"}}>
                                     {item.itemName}
                                 </a>

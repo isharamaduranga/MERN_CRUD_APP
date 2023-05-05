@@ -17,8 +17,10 @@ const itemRoutes = require("./Routes/items")
 const app = express();
 
 /** Defined App Middlewares */
+app.use(cors());
 app.use(bodyParser.json());
 app.use(itemRoutes);
+
 
 
 /** Declare Unique PORT */

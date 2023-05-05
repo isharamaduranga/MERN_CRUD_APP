@@ -25,6 +25,7 @@ router.post('/item/save', (req, res) => {
 
 /** GET ITEMS  */
 router.get('/items', (req, res) => {
+
     Items.find()
         .then(items => {
             return res.status(200).json({

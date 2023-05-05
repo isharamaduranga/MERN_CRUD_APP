@@ -3,6 +3,7 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import AddItem from "./components/AddItem";
+import UpdateItem from "./components/UpdateItem";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/add" element={<AddItem/>} />
-          <Route path="/edit/:id" />
+          <Route path="/edit/:id" element={<UpdateItem/>} />
         </Routes>
 
       </BrowserRouter>

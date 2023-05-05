@@ -37,8 +37,8 @@ function Home() {
                 </div>
             </div>
 
-        <table className="table table-hover">
-            <thead style={{background:"lightgray"}}>
+        <table className="table table-sm table-hover">
+            <thead style={{background:"lightgray",borderBottom:"2px solid black"}}>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Item Code</th>
@@ -60,12 +60,12 @@ function Home() {
                     <td>{item.itemQty} </td>
                     <td>{item.itemPrice} </td>
                     <td>
-                        <Link to={"/edit/"} className='btn btn-primary'>
-                            <i className="far fa-edit">&nbsp; </i>E d i t `
+                        <Link to={"/edit/"} className='btn btn-warning'>
+                            <i className="far fa-edit" style={{color:"blueviolet"}}>&nbsp; </i>E d i t `
                         </Link>
                         &nbsp;
                         <a href="#"  className="btn btn-danger">
-                            <i className="far fa-trash-alt">&nbsp; </i>Delete
+                            <i className="far fa-trash-alt"  style={{color:"aqua"}}>&nbsp; </i>Delete
                         </a>
                     </td>
                 </tr>

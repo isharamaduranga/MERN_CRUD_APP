@@ -29,8 +29,7 @@ router.get('/items', (req, res) => {
     Items.find()
         .then(items => {
             return res.status(200).json({
-                success: true ,
-                existingItems: items ,
+                success: true, existingItems: items,
             });
         })
         .catch(err => {
@@ -74,6 +73,23 @@ router.delete('/item/delete/:id', (req, res) => {
                 error: err,
             });
         });
-})
+});
+
+/** Get Item for Request Id */
+router.get("/item/:id", (req, res) => {
+    let itemId = req.params.id;
+
+    Items.findById(itemId)
+        .then(item => {
+            return res.status(200).json({
+                success: true, item
+            });
+        })
+        .catch(err => {
+            return res.status(400).json({
+                success: false, err
+            });
+        });
+});
 
 module.exports = router;

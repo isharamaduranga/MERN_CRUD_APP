@@ -12,9 +12,9 @@ const ItemDetails = () => {
                     <p className="card-text">{description}</p>
                 </div>
                 <ul className="list-group list-group-flush">
-                    <li className="list-group-item"><span className="text-primary fw-bold">ItemCode : </span>{itemCode}</li>
-                    <li className="list-group-item"><span className="text-danger fw-bold"> Items Qty  : </span>{itemQty}</li>
-                    <li className="list-group-item"><span className="text-success fw-bold">Item Price : </span>{itemPrice}</li>
+                    <li className="list-group-item"><span className="text-primary fw-medium">ItemCode   : </span>{itemCode}</li>
+                    <li className="list-group-item"><span className="text-danger fw-medium"> Items Qty  : </span>{itemQty}</li>
+                    <li className="list-group-item"><span className="text-success fw-medium">Item Price : </span>{itemPrice}</li>
                 </ul>
                 <div className="card-footer text-center">
                     <a href="/" className="card-link" style={{textDecoration: "none"}}>Back To Home</a>

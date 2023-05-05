@@ -36,10 +36,10 @@ function Home() {
                     />
                 </div>
             </div>
-        <div className="table-responsive">
-            <table className="table table-sm table-hover">
-                <thead style={{background:"lightgray",borderBottom:"1px solid blueviolet"}}>
-                <tr className="h-50">
+        <div className="table-responsive mx-auto">
+            <table className="table table-responsive-lg table-hover">
+                <thead style={{background:"lightgray",borderBottom:"1px solid gray"}}>
+                <tr>
                     <th scope="col">#</th>
                     <th scope="col">Item Code</th>
                     <th scope="col">Name</th>
@@ -61,11 +61,11 @@ function Home() {
                         <td>{item.itemPrice} </td>
                         <td>
                             <Link to={"/edit/"} className='btn btn-warning btn-sm'>
-                                <i className="far fa-edit" style={{color:"blueviolet"}}>&nbsp; </i>E d i t `
+                                <i className="far fa-edit" style={{color:"blueviolet"}}>&nbsp; </i>E d i t`
                             </Link>
                             &nbsp;
                             <a href="#"  className="btn btn-danger btn-sm">
-                                <i className="far fa-trash-alt"  style={{color:"aqua"}}>&nbsp; </i>Delete
+                                <i className="far fa-trash-alt"  style={{color:"white"}}>&nbsp; </i>Delete
                             </a>
                         </td>
                     </tr>

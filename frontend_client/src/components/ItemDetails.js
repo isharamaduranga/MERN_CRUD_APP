@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import {useParams} from "react-router-dom";
+import axios from "axios";
 
 const ItemDetails = () => {
     const {itemCode, itemName, description, itemQty, itemPrice} = useParams();
+
+
     return (
         <div className="container-fluid d-flex align-items-center justify-content-center bg-white " style={{height: "91vh"}}>
             <div className="card border-1 border-secondary shadow-lg " style={{width: "22rem"}}>

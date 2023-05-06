@@ -54,10 +54,6 @@ const AddItem = () => {
             .catch((err) => {
                alert("error :"+err)
             })
-
-        /*   const task = {
-               ...values
-           }*/
     }
 
     const formik = useFormik({

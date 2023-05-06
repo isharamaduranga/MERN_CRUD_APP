@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {Link} from "react-router-dom";
+import Snackbar from "../components/SnackBar/SnackBar";
 
 function Home() {
 
     const [items, setItems] = useState([]);
-
+    const [msg, setMsg] = useState("")
     useEffect(() => {
         retrieveItems();
     }, []);
@@ -19,8 +20,16 @@ function Home() {
         });
     };
 
+    const onDelete = (id) => {
+        axios.delete(`/item/delete/${id}`).then((res) => {
+            setMsg('Item Deleted Successfully ...');
+            retrieveItems();
+        });
+    };
 
-    return (<div className="container shadow-lg p-5 mt-4 rounded-4">
+
+    return (
+        <div className="container shadow-lg p-5 mt-4 rounded-4">
             <div className='row mb-2 mt-2'>
                 <h4 className="text-success text-center">All Items Here !!!</h4>
             </div>
@@ -69,7 +78,7 @@ function Home() {
                                     <i className="far fa-edit" style={{color: "white"}}>&nbsp; </i>E d i t`
                                 </Link>
                                 &nbsp;
-                                <a href="#" className="btn btn-danger btn-sm">
+                                <a href="#" onClick={()=>onDelete(item._id)} className="btn btn-danger btn-sm">
                                     <i className="far fa-trash-alt" style={{color: "white"}}>&nbsp; </i>Delete
                                 </a>
                             </td>
@@ -85,7 +94,9 @@ function Home() {
                     </Link>
                 </button>
             </div>
-        </div>);
+            {msg ? <Snackbar severity="warning" message={msg}/> : ""}
+        </div>
+    );
 }
 
 export default Home;

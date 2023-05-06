@@ -172,7 +172,7 @@ return (<>
                 </div>
             </Box>
         </div>
-        {msg ? <Snackbar severity="success" message={msg}/> : ""}
+        {msg ? <Snackbar severity="info" message={msg}/> : ""}
     </>
 );
 }

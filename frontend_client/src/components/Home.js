@@ -65,8 +65,8 @@ function Home() {
                             <td>{item.itemQty} </td>
                             <td>{item.itemPrice} </td>
                             <td>
-                                <Link to={"/edit/"} className='btn btn-warning btn-sm'>
-                                    <i className="far fa-edit" style={{color: "blueviolet"}}>&nbsp; </i>E d i t`
+                                <Link to={"/edit/"+ item._id} className='btn btn-primary btn-sm'>
+                                    <i className="far fa-edit" style={{color: "white"}}>&nbsp; </i>E d i t`
                                 </Link>
                                 &nbsp;
                                 <a href="#" className="btn btn-danger btn-sm">

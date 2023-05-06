@@ -32,7 +32,7 @@ export default function SnackBar(props) {
                 open={open}
                 autoHideDuration={6000}
                 onClose={handleClose}
-                anchorOrigin={{ vertical: 'center', horizontal: 'right' }}
+                anchorOrigin={{ vertical: 'down', horizontal: 'right' }}
                 TransitionComponent={TransitionRight}
             >
                 <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>

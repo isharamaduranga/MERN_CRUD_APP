@@ -13,7 +13,7 @@ const Alert = React.forwardRef(
 export default function SnackBar(props) {
     const [open, setOpen] = React.useState(true);
 
-    const {severity,message,linkMsg} = props;
+    const {severity,message} = props;
 
 
     const handleClose = (event, reason) => {
@@ -37,7 +37,6 @@ export default function SnackBar(props) {
             >
                 <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
                     <div>{message}</div>
-                    <div>{linkMsg}</div>
                 </Alert>
             </Snackbar>
         </Stack>

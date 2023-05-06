@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import TextField from '@mui/material/TextField';
 import {Box} from "@mui/material";
 import {useFormik} from "formik";
 import {Link} from "react-router-dom";
 import InputAdornment from '@mui/material/InputAdornment';
 import axios from "axios";
+import Snackbar from "../components/SnackBar/SnackBar";
 
 const AddItem = () => {
+
+    const [msg,setMsg]=useState("")
 
     const initialValues = {
         itemCode: "", itemName: "", description: "", itemQty: "", itemPrice: ""
@@ -48,11 +51,12 @@ const AddItem = () => {
         axios.post("/item/save", values)
             .then((res) => {
                 if (res.data.success) {
+                    setMsg('Item Saved Successfully ...');
                     resetForm({values: ''})
                 }
             })
             .catch((err) => {
-               alert("error :"+err)
+                setMsg('Something Went wrong Not Saved !!!')
             })
     }
 
@@ -61,7 +65,8 @@ const AddItem = () => {
         /** Add On submit proceed*/
     });
 
-    return (<div className="d-flex  align-items-center justify-content-center  " style={{height: '90vh'}}>
+    return (
+        <div className="d-flex  align-items-center justify-content-center  " style={{height: '90vh'}}>
         <Box
             className="shadow-lg rounded-4 p-5"
             component="form"
@@ -158,6 +163,7 @@ const AddItem = () => {
                 </button>
             </div>
         </Box>
+            {msg ? <Snackbar severity="success" message={msg} /> : ""}
     </div>);
 }
 

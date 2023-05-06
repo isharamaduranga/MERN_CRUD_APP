@@ -24,7 +24,7 @@ router.post('/item/save', (req, res) => {
 });
 
 /** GET ITEMS  */
-router.get('/items', (req, res) => {
+router.get('/items/', (req, res) => {
 
     Items.find()
         .then(items => {

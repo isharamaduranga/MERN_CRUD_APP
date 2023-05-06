@@ -26,7 +26,22 @@ function Home() {
             retrieveItems();
         });
     };
+    const handleSearchCategory = (e) => {
+        const searchKey = e.currentTarget.value;
 
+        axios.get('/items').then(res => {
+            filterData(res.data.existingItems, searchKey);
+        });
+    };
+
+    const filterData = (items, searchKey) => {
+        const result = items.filter((item) =>
+            item.itemCode.toLowerCase().includes(searchKey) ||
+            item.itemName.toLowerCase().includes(searchKey) ||
+            item.description.toLowerCase().includes(searchKey)
+        );
+        setItems(result);
+    };
 
     return (
         <div className="container shadow-lg p-5 mt-4 rounded-4">
@@ -40,6 +55,7 @@ function Home() {
                         type='search'
                         placeholder='Search'
                         name='searchQuery'
+                        onChange={handleSearchCategory}
                     />
                 </div>
             </div>
